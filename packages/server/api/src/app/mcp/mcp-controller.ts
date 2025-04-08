@@ -1,4 +1,4 @@
-import { MCP } from '@activepieces/ee-shared'
+import { MCP } from '@activepieces/shared'
 import { ALL_PRINCIPAL_TYPES, apId, ApId, Permission, PrincipalType } from '@activepieces/shared'
 import { FastifyPluginAsyncTypebox, Type } from '@fastify/type-provider-typebox'
 import { StatusCodes } from 'http-status-codes'

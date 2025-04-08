@@ -1,6 +1,6 @@
 import { PieceProperty, PropertyType } from '@activepieces/pieces-framework'
 import { UserInteractionJobType } from '@activepieces/server-shared'
-import { EngineResponseStatus, ExecuteActionResponse, isNil } from '@activepieces/shared'
+import { EngineResponseStatus, ExecuteActionResponse, isNil, MCPPieceSchema } from '@activepieces/shared'
 import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js'
 import { SSEServerTransport } from '@modelcontextprotocol/sdk/server/sse.js'
 import { FastifyBaseLogger, FastifyReply } from 'fastify'
@@ -19,10 +19,10 @@ export async function createMcpServer({
     const mcp = await mcpService(logger).getOrThrow({ mcpId, log: logger })
     const projectId = mcp.projectId
     const platformId = await projectService.getPlatformId(projectId)
-    const connections = mcp.connections
-
-    const pieceNames = connections.map((connection) => connection.pieceName)
-    const pieces = await Promise.all(pieceNames.map(async (pieceName) => {
+    
+    // Get pieces with their metadata
+    const pieceNames = mcp.pieces.map((piece) => piece.pieceName)
+    const piecesMetadata = await Promise.all(pieceNames.map(async (pieceName) => {
         return pieceMetadataService(logger).getOrThrow({
             name: pieceName,
             version: undefined,
@@ -38,12 +38,16 @@ export async function createMcpServer({
     })
 
     const uniqueActions = new Set()
-    pieces.flatMap(piece =>
+    piecesMetadata.flatMap(piece =>
         Object.values(piece.actions).map(action => {
             if (uniqueActions.has(action.name)) {
                 return
             }
-            const pieceConnectionExternalId = connections.find(connection => connection.pieceName === piece.name)?.externalId
+            
+            // Find the corresponding MCP piece with its connection
+            const mcpPiece = mcp.pieces.find(p => p.pieceName === piece.name) as MCPPieceSchema
+            const pieceConnectionExternalId = mcpPiece?.connection?.externalId
+            
             uniqueActions.add(action.name)
             server.tool(
                 action.name,
@@ -61,8 +65,13 @@ export async function createMcpServer({
                                 .filter(([key, prop]) => !isNil(prop.defaultValue) && isNil(params[key]))
                                 .map(([key, prop]) => [key, prop.defaultValue]),
                         ),
-                        'auth': `{{connections['${pieceConnectionExternalId}']}}`,
                     }
+                    
+                    // Only add auth if the piece has a connection
+                    if (pieceConnectionExternalId) {
+                        parsedInputs['auth'] = `{{connections['${pieceConnectionExternalId}']}}`
+                    }
+                    
                     const result = await userInteractionWatcher(logger).submitAndWaitForResponse<EngineHelperResponse<ExecuteActionResponse>>({
                         jobType: UserInteractionJobType.EXECUTE_TOOL,
                         actionName: action.name,

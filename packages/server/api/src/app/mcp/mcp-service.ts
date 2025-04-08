@@ -1,4 +1,4 @@
-import { MCPSchema } from '@activepieces/ee-shared'
+import { MCPSchema } from '@activepieces/shared'
 import { ActivepiecesError, ApId, apId, AppConnectionWithoutSensitiveData, ErrorCode, isNil, spreadIfDefined } from '@activepieces/shared'
 import dayjs from 'dayjs'
 import { FastifyBaseLogger } from 'fastify'

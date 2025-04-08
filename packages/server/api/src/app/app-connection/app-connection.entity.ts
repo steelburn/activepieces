@@ -16,7 +16,7 @@ import { EncryptedObject } from '../helper/encryption'
 export type AppConnectionSchema = Omit<AppConnection, 'value'> & {
     value: EncryptedObject
     owner: User
-    mcpId?: string
+    mcpPieceId?: String
 }
 
 export const AppConnectionEntity = new EntitySchema<AppConnectionSchema>({
@@ -47,8 +47,8 @@ export const AppConnectionEntity = new EntitySchema<AppConnectionSchema>({
             type: String,
             nullable: true,
         },
-        mcpId: {
-            ...ApIdSchema,
+        mcpPieceId: {
+            type: String,
             nullable: true,
         },
         projectIds: {
@@ -77,8 +77,8 @@ export const AppConnectionEntity = new EntitySchema<AppConnectionSchema>({
             columns: ['ownerId'],
         },
         {
-            name: 'idx_app_connection_mcp_id',
-            columns: ['mcpId'],
+            name: 'idx_app_connection_mcp_piece_id',
+            columns: ['mcpPieceId'],
         },
     ],
     relations: {
