@@ -14,6 +14,11 @@
             "date": 1755014607313,
             "name": "logs/scrapeless-2025-08-12.log",
             "hash": "3c26bb1f729249cae881faa242a8385403dab04e5553ca818b7a6f5b378e34a5"
+        },
+        {
+            "date": 1755100952588,
+            "name": "logs/scrapeless-2025-08-13.log",
+            "hash": "5a1be12f545c9950834811e857c12c4a1242ce806a7be228ea5ef47e4ef3f42f"
         }
     ],
     "hashType": "sha256"
