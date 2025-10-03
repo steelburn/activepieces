@@ -1160,18 +1160,18 @@
   "Run exceeded {timeout} seconds, try to optimize your steps.": "L'exécution dépasse {timeout} secondes, essayez d'optimiser vos étapes.",
   "Run failed for an unknown reason, contact support.": "L'exécution a échoué pour une raison inconnue, contactez l'assistance.",
   "tasks": "",
-  "Exit Run": "Quitter l'exécution",
   "Select shown": "Sélectionner affiché",
   "Start Time": "Heure de début",
-  "Runs retried successfully": "",
   "Retry": "Réessayer",
   "all except": "Tous sauf",
   "all": "Tous",
   "on latest version": "sur la dernière version",
   "Only failed runs can be retried from failed step": "Seuls les exécutions échouées peuvent être ré-essayées à partir de l'étape échouée",
   "from failed step": "à partir de l'étape échouée",
+  "Viewing retried runs": "",
   "No flow runs found": "Aucune exécution de Flow trouvée",
   "Come back later when your automations start running": "Revenez plus tard lorsque vos automatisations commenceront à fonctionner",
+  "runsRetriedNote": "{runsCount, plural, =0 {0 fonctionne à nouveau} =1 {Un run a été réessayé} other {# courses ont été réessayées}}",
   "Step running": "Étape en cours d'exécution",
   "Step paused": "Étape en pause",
   "Step Stopped": "Étape arrêtée",
@@ -1375,6 +1375,5 @@
   "Activation failed, invalid license key": "Échec de l'activation, clé de licence invalide",
   "Invalid Access": "Accès non valide",
   "Either the project does not exist or you do not have access to it.": "Soit le projet n'existe pas, soit vous n'y avez pas accès.",
-  "Yesterday": "",
-  "runsRetriedNote": "{runsCount, plural, =0 {0 fonctionne à nouveau} =1 {Un run a été réessayé} other {# courses ont été réessayées}}"
+  "Yesterday": ""
 }

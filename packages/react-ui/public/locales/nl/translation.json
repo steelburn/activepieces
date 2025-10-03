@@ -1160,18 +1160,18 @@
   "Run exceeded {timeout} seconds, try to optimize your steps.": "Run overschrijdt {timeout} seconden, probeer je stappen te optimaliseren.",
   "Run failed for an unknown reason, contact support.": "Het uitvoeren is mislukt om onbekende reden, contact support.",
   "tasks": "",
-  "Exit Run": "Run afsluiten",
   "Select shown": "Selecteer getoond",
   "Start Time": "Starttijd",
-  "Runs retried successfully": "",
   "Retry": "Opnieuw",
   "all except": "alles behalve",
   "all": "alle",
   "on latest version": "op de laatste versie",
   "Only failed runs can be retried from failed step": "Alleen mislukte uitvoeringen kunnen opnieuw worden geprobeerd vanaf de mislukte stap",
   "from failed step": "van mislukte stap",
+  "Viewing retried runs": "",
   "No flow runs found": "Geen stroom uitvoeringen gevonden",
   "Come back later when your automations start running": "Kom later terug wanneer jouw automatiseringen beginnen te werken",
+  "runsRetriedNote": "{runsCount, plural, =0 {0 is opnieuw uitgevoerd} =1 {Een poging werd opnieuw uitgevoerd} other {# opnieuw geprobeerd}}",
   "Step running": "Stap wordt uitgevoerd",
   "Step paused": "Stap is gepauzeerd",
   "Step Stopped": "Stap gestopt",
@@ -1375,6 +1375,5 @@
   "Activation failed, invalid license key": "Activering mislukt, ongeldige licentiesleutel",
   "Invalid Access": "Ongeldige toegang",
   "Either the project does not exist or you do not have access to it.": "Het project bestaat niet of je hebt er geen toegang toe.",
-  "Yesterday": "",
-  "runsRetriedNote": "{runsCount, plural, =0 {0 is opnieuw uitgevoerd} =1 {Een poging werd opnieuw uitgevoerd} other {# opnieuw geprobeerd}}"
+  "Yesterday": ""
 }

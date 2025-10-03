@@ -1160,18 +1160,18 @@
   "Run exceeded {timeout} seconds, try to optimize your steps.": "",
   "Run failed for an unknown reason, contact support.": "",
   "tasks": "",
-  "Exit Run": "",
   "Select shown": "",
   "Start Time": "",
-  "Runs retried successfully": "",
   "Retry": "",
   "all except": "",
   "all": "",
   "on latest version": "",
   "Only failed runs can be retried from failed step": "",
   "from failed step": "",
+  "Viewing retried runs": "",
   "No flow runs found": "",
   "Come back later when your automations start running": "",
+  "runsRetriedNote": "{runsCount, plural, =0 {0 runs retried} =1 {1 run was retried} other {# runs were retried}}",
   "Step running": "",
   "Step paused": "",
   "Step Stopped": "",
@@ -1375,6 +1375,5 @@
   "Activation failed, invalid license key": "",
   "Invalid Access": "",
   "Either the project does not exist or you do not have access to it.": "",
-  "Yesterday": "",
-  "runsRetriedNote": "{runsCount, plural, =0 {0 runs retried} =1 {1 run was retried} other {# runs were retried}}"
+  "Yesterday": ""
 }
